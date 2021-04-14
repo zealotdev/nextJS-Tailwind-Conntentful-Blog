@@ -2,6 +2,8 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
 
 import Navigation from './../components/Navigation';
+import Layout from './../components/Layout';
+
 import { fetchNavigationEntries } from '../utils/fetchNavigationEntries';
 
 export default function Home({ links }) {
@@ -9,11 +11,12 @@ export default function Home({ links }) {
     <div className={styles.container}>
       <Head>
         <title>Zeal-Blog</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/zeal-logo.svg" />
       </Head>
 
       <main>
         <Navigation links={links} />
+        <Layout />
       </main>
     </div>
   );
