@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "utils/fetchNavigationEntries.js", "components/LinkLists.tsx"  ],
   "exclude": [
     "node_modules"
   ]
