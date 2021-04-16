@@ -1,5 +1,7 @@
 import Typed from 'react-typed';
 import Image from 'next/image';
+import React from 'react';
+import FeaturedSection from './FeaturedSection';
 
 export default function Layout() {
   const options = {
@@ -50,7 +52,9 @@ export default function Layout() {
           </p>
         </div>
       </section>
-      <section>Featured Posts</section>
+      <section className="mt-16 md:mx-12">
+        <FeaturedSection />
+      </section>
       <footer>Footer</footer>
     </div>
   );
