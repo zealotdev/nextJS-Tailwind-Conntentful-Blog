@@ -1,5 +1,6 @@
 {
   "recommendations": [
-    "wallabyjs.quokka-vscode"
+    "wallabyjs.quokka-vscode",
+    "eamodio.gitlens"
   ]
 }
