@@ -6,10 +6,9 @@ import Layout from './../components/Layout';
 
 import { fetchNavigationEntries } from '../utils/fetchNavigationEntries';
 import { fetchTodayPickPost } from '../utils/fetchTodayPickPost';
+import { fetchCategory } from '../utils/fetchCategory';
 
-export default function Home({ links, todaysPick }) {
-  console.log(todaysPick);
-
+export default function Home({ links, todaysPick, categories }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -19,7 +18,7 @@ export default function Home({ links, todaysPick }) {
 
       <main>
         <Navigation links={links} />
-        <Layout todaysPick={todaysPick} />
+        <Layout todaysPick={todaysPick} categories={categories} />
       </main>
     </div>
   );
@@ -32,10 +31,14 @@ export async function getStaticProps() {
   // Fetch Today's Editor Pick
   const todaysPick = await fetchTodayPickPost();
 
+  // Fetch all Categories
+  const categories = await fetchCategory();
+
   return {
     props: {
       links,
       todaysPick,
+      categories,
     },
   };
 }
