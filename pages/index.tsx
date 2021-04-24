@@ -5,8 +5,11 @@ import Navigation from './../components/Navigation';
 import Layout from './../components/Layout';
 
 import { fetchNavigationEntries } from '../utils/fetchNavigationEntries';
+import { fetchTodayPickPost } from '../utils/fetchTodayPickPost';
 
-export default function Home({ links }) {
+export default function Home({ links, todaysPick }) {
+  console.log(todaysPick);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +19,7 @@ export default function Home({ links }) {
 
       <main>
         <Navigation links={links} />
-        <Layout />
+        <Layout todaysPick={todaysPick} />
       </main>
     </div>
   );
@@ -26,9 +29,13 @@ export async function getStaticProps() {
   // Fetch Top navigation links
   const links = await fetchNavigationEntries();
 
+  // Fetch Today's Editor Pick
+  const todaysPick = await fetchTodayPickPost();
+
   return {
     props: {
       links,
+      todaysPick,
     },
   };
 }

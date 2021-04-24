@@ -2,8 +2,9 @@ import Typed from 'react-typed';
 import Image from 'next/image';
 import React from 'react';
 import FeaturedSection from './FeaturedSection';
+import TodaysEditorPick from './TodaysEditorPick';
 
-export default function Layout() {
+export default function Layout({ todaysPick }) {
   const options = {
     strings: [
       'George 😊',
@@ -53,8 +54,14 @@ export default function Layout() {
         </div>
       </section>
       <section className="mt-16 md:mx-12">
-        <FeaturedSection />
+        <div className="py-12 bg-white rounded-2xl">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <TodaysEditorPick todaysPick={todaysPick} />
+            <FeaturedSection />
+          </div>
+        </div>
       </section>
+
       <footer>Footer</footer>
     </div>
   );

@@ -1,7 +1,6 @@
-const spaceID = process.env.CONTENTFUL_SPACE_ID;
-const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
+import { spaceID, accessToken } from './contentfulConfig';
 
-export async function fetchNavigationEntries() {
+export const fetchNavigationEntries = async () => {
   const client = require('contentful').createClient({
     space: spaceID,
     accessToken: accessToken,
@@ -19,6 +18,6 @@ export async function fetchNavigationEntries() {
   if (topNavLinks) return topNavLinks.fields.navigationLink;
 
   console.log('Error fetching the entries');
-}
+};
 
 export default { fetchNavigationEntries };
